@@ -1,12 +1,12 @@
 """
-URL configuration for codeleap_backend_test project.
+URL configuration for code-leap_backend_test project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+    2. Add a URL to urlpatterns:  path('', views. home, name='home')
 Class-based views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework import routers
+from posts.api import viewsets as postsviewsets
+from posts.views import PostsLists
+
+route = routers.DefaultRouter()
+
+route.register(r'posts', postsviewsets.PostsViewSets, basename='posts')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('post_list/', PostsLists.as_view(), name="post-api")
 ]
