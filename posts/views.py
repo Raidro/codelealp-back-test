@@ -38,6 +38,30 @@ class PostsLists(APIView):
 
                 return Response({"success": response.json()}, status=status.HTTP_201_CREATED)
             else:
-                return Response({"error": response.text}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                return Response({"error": response.text}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def patch(self, request, *args, **kwargs):
+
+        try:
+            posts_id = kwargs.get('pk')
+            data_to_send = {
+                "title": "Mateus Teste Modificado",
+                "content": "Novo conteudo"
+            }
+            headers = {'Content-Type': 'application/json'}
+            json_data = json.dumps(data_to_send)
+
+            url_patch = f"https://dev.codeleap.co.uk/careers/{posts_id}"
+
+            response = requests.post(url_patch, data=json_data, headers=headers)
+
+            if response.status_code == 200:
+                return Response({"success": response.json()}, status=status.HTTP_202_ACCEPTED)
+
+            else:
+                return Response({"error": response}, status=status.HTTP_400_BAD_REQUEST)
+
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

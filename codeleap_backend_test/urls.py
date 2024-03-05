@@ -15,7 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.shortcuts import redirect
+from django.urls import path, include
 from rest_framework import routers
 from posts.api import viewsets as postsviewsets
 from posts.views import PostsLists
@@ -26,5 +27,6 @@ route.register(r'posts', postsviewsets.PostsViewSets, basename='posts')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('post_list/', PostsLists.as_view(), name="post-api")
+    path('', lambda request: redirect('post_list/', permanent=False)),
+    path('post_list/', PostsLists.as_view())
 ]
