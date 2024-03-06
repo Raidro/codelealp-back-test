@@ -1,6 +1,6 @@
 # Backend teste for codeleap
 
-## Repositorio feito para a vaga de backedn da codeleap - usando Python, Django e DRF(Django Rest Framework)
+## Repository created for the CodeLeap backend position - using Python, Django, and DRF (Django Rest Framework)
 
 ---
 
