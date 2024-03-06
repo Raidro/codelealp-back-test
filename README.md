@@ -1,7 +1,19 @@
 # Backend teste for codeleap
 
 ## Repositorio feito para a vaga de backedn da codeleap - usando Python, Django e DRF(Django Rest Framework)
- 
+
+--------------------- 
+#### how to start the project:  
+
+After clone the repo, go to the root of the project and apply the command: 
+
+- `source venv/bin/activate`
+
+After that you'll be inside the venv so apply the command: 
+
+- `python manage.py runserver`
+
+---------------------
 ### Server data structure
 
 ### **Please note: due to how Django works, a finishing slash “/” is required. Failure to include so could cause CORS related issues.**
@@ -74,3 +86,9 @@ The item data structure is as follows:
 ```json
 {}
 ```
+
+----------------------------
+
+### OBS:
+
+The POST and GET requests are working; however, the PATCH and DELETE requests are not. I'm getting some errors related to the URL. I'm not sure if it's an issue with the endpoint or if I'm not using it correctly. This is left as a learning experience.
