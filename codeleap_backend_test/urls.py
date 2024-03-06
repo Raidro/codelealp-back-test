@@ -16,14 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.shortcuts import redirect
-from django.urls import path, include
-from rest_framework import routers
-from posts.api import viewsets as postsviewsets
+from django.urls import path
 from posts.views import PostsLists
-
-route = routers.DefaultRouter()
-
-route.register(r'posts', postsviewsets.PostsViewSets, basename='posts')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
