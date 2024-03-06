@@ -8,11 +8,14 @@
 
 After clone the repo, go to the root of the project and apply the command:
 
-- `source venv/bin/activate`
+1. Activate the virtual environment:
+    ```bash
+    source venv/bin/activate
+    ```
 
-After that you'll be inside the venv so apply the command:
-
-- `python manage.py runserver`
+2. Run the server:
+    ```bash
+    python manage.py runserver
 
 ---
 
